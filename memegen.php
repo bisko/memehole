@@ -9,9 +9,18 @@ function print_meme($serverhost ='', $meme='random') {
 
 class Meme {
 
-    private $resource = null;
+    /* Basic configuration */
+    private $maxSize = 48; // maximum font size
+	private $minSize = 16; // minimum font size
+	private $fontPath = 'impact.ttf'; // font file (relative to index.php)
+	private $padding = 10; // padding around the image, so the text doesn't overflow outside
+	private $stroke = 3; // text stroke width
 
-    public $path = '';
+   
+
+  
+
+    
 
     public $memes = array (
 		'boromir' => array (
@@ -70,20 +79,15 @@ class Meme {
 
     private $actions = array('visit','open', 'check', 'surf');
 
-	private $maxSize = 48;
-	private $minSize = 16;
-	private $fontPath = 'impact.ttf';
-
-	private $padding = 10;
-	private $basepath = '';
-
-	private $server = '';
-
-	private $cWhite = null;
+	
+    private $resource = null;
+    public $path = '';
+    private $server = '';
+    private $basepath = '';
+    private $cWhite = null;
 	private $cBlack = null;
-
-	private $stroke = 3;
-
+	
+	
     function __construct($meme, $srv = 'this site') {
 
     	$this->server = $srv;
